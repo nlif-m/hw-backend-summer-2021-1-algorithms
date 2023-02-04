@@ -1,4 +1,3 @@
-from types import MappingProxyType
 from typing import Optional
 
 __all__ = (
