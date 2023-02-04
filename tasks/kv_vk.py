@@ -23,7 +23,11 @@ def flip_kv_vk(d: dict[KT, KV]) -> dict[KV, KT]:
         'Москва': 'moscow',
     }
     """
-    raise NotImplementedError
+    result = dict()
+    for k, v in d.items():
+        result[v] = k
+        
+    return result
 
 
 def flip_kv_vk_safe(d: dict[KT, KV]) -> dict[KV, list[KT]]:
@@ -39,4 +43,11 @@ def flip_kv_vk_safe(d: dict[KT, KV]) -> dict[KV, list[KT]]:
         '+3': ['Москва', 'Санкт-Петербург'],
     }
     """
-    raise NotImplementedError
+    result = dict()
+    for k, v in d.items():
+        if v not in result:
+            result[v] = [k]
+        else:
+            result[v].append(k)
+        
+    return result
